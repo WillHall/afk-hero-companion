@@ -10,7 +10,7 @@ export interface Hero {
   owned: boolean;
   role: string;
   si: number;
-  stars: number;
+  maxSi: number;
   title: string;
   type: string;
 }

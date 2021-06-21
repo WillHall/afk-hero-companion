@@ -22,9 +22,11 @@ export namespace Components {
         "name": string;
         "owned": boolean;
         "si": number;
-        "stars": number;
     }
     interface HeroGrid {
+    }
+    interface ModifyHero {
+        "heroId": string;
     }
 }
 declare global {
@@ -58,12 +60,19 @@ declare global {
         prototype: HTMLHeroGridElement;
         new (): HTMLHeroGridElement;
     };
+    interface HTMLModifyHeroElement extends Components.ModifyHero, HTMLStencilElement {
+    }
+    var HTMLModifyHeroElement: {
+        prototype: HTMLModifyHeroElement;
+        new (): HTMLModifyHeroElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "hero-decorated-tile": HTMLHeroDecoratedTileElement;
         "hero-grid": HTMLHeroGridElement;
+        "modify-hero": HTMLModifyHeroElement;
     }
 }
 declare namespace LocalJSX {
@@ -83,9 +92,11 @@ declare namespace LocalJSX {
         "name"?: string;
         "owned"?: boolean;
         "si"?: number;
-        "stars"?: number;
     }
     interface HeroGrid {
+    }
+    interface ModifyHero {
+        "heroId"?: string;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
@@ -93,6 +104,7 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "hero-decorated-tile": HeroDecoratedTile;
         "hero-grid": HeroGrid;
+        "modify-hero": ModifyHero;
     }
 }
 export { LocalJSX as JSX };
@@ -104,6 +116,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "hero-decorated-tile": LocalJSX.HeroDecoratedTile & JSXBase.HTMLAttributes<HTMLHeroDecoratedTileElement>;
             "hero-grid": LocalJSX.HeroGrid & JSXBase.HTMLAttributes<HTMLHeroGridElement>;
+            "modify-hero": LocalJSX.ModifyHero & JSXBase.HTMLAttributes<HTMLModifyHeroElement>;
         }
     }
 }

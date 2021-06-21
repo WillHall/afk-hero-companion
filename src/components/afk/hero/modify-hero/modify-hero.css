@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.hero-backdrop {
+  width: 100%;
+
+  display: block;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% -30%;
+
+  transition: all 2s;
+
+}
+
+.hero-details,
+.hero-controls {
+  margin: 0 auto 20px;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  width: 100%;
+}

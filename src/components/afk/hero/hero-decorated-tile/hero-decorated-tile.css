@@ -21,24 +21,23 @@
 }
 
 .hero-thumb {
-  position: relative;
-  background-position: center center;
-  background-repeat: no-repeat; 
-  background-size: cover;
-
-  overflow: hidden;
-
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 
-  border-radius: 8px 2px;  
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  width: 94%;
-  height: 94%;
-  min-height: calc(var(--heroWidth) - 4px);
+  width: calc(var(--heroWidth) - 3px);
+  height: calc(var(--heroWidth) - 3px);
+  margin: 1px 0 0 1px;
+  overflow: hidden;
 
-  margin: 3% 0 0 3%;
-
-  box-shadow: inset 0 0 3px #000
+  border-radius: 8px 2px;
+  box-shadow: inset 0 0 3px #000;
+  overflow: hidden;
 }
 
 .flair {
@@ -139,7 +138,18 @@
   background-color: gold;
 }
 
-.asc-6 {
+.asc-6,
+.asc-7 {
+  background-color: darkred;
+}
+
+.asc-8,
+.asc-9,
+.asc-10,
+.asc-11,
+.asc-12,
+.asc-13,
+.asc-14 {
   background-color: whitesmoke;
 }
 
@@ -168,7 +178,8 @@
 
 .asc-1:after,
 .asc-3:after,
-.asc-5:after {
+.asc-5:after,
+.asc-7:after {
   left: 0;
   bottom: 0;
 
@@ -178,7 +189,12 @@
   margin-bottom: calc(var(--flairMarginOffset) * -1);
 }
 
-.asc-6 {
+.asc-8,
+.asc-9,
+.asc-10,
+.asc-11,
+.asc-12,
+.asc-13 {
   overflow: visible;
 }
 
@@ -215,14 +231,15 @@
 }
 
 .stars {
-  position: relative;
-  top: 75%;
+  position: absolute;
+  bottom: 0;
   z-index: 2;
   color: yellow;
   font-size: 10px;
   text-align: center;
   background: rgba(0,0,0,0.5);
   padding: 0 0 1px;
+  width: 100%;
 }
 .stars-1:after {
   content: '★';

@@ -1,0 +1,71 @@
+:host {
+  display: block;
+}
+
+.hero-backdrop {
+  width: 100%;
+
+  display: block;
+  height: calc(100% - 20px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% -30%;
+
+  transition: all 2s;
+
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+.hero-details,
+.hero-controls {
+  margin: 0 auto 20px;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  width: var(--appWidth);
+  min-height: 45%;
+}
+
+.hero-controls {
+  color: #fff;
+}
+
+
+$particleSize: 1vmin;
+$animationDuration: 6s;
+$amount: 20;
+.bokeh span {
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  $colors: (
+    rgba(255,255,255,0.8),
+    rgba(234, 248, 112, 0.6),
+    rgba(255, 230, 0, 0.7)
+  );
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+    }
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}

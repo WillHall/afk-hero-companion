@@ -3,9 +3,7 @@
   grid-template-columns: repeat(var(--columnCount), 1fr);
   grid-column-gap: var(--heroSpacing);
   grid-row-gap: var(--heroSpacing);
-}
 
-.working-container {
   width: var(--appWidth);
-  margin: 0 auto 20px;
+  margin: 20px auto;
 }

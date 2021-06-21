@@ -1,5 +1,6 @@
 import { Component, h } from '@stencil/core';
 // import { HeroDecoratedTile } from '../hero-decorated-tile/hero-decorated-tile';
+import { HeroService } from '../hero.service';
 import { Hero } from '../hero.interface';
 
 @Component({
@@ -10,11 +11,8 @@ import { Hero } from '../hero.interface';
 export class HeroGrid {
   heroes: Hero[] = [];
 
-  async componentWillLoad(lang="en") {
-    const host = `https://raw.githubusercontent.com/WillHall/afk-hero-metadata/main/metadata_${lang}.json`;
-    const ret: any = await fetch(host);
-    const json = await ret.json();
-    this.heroes = json.heroes;
+  async componentWillLoad() {
+    this.heroes = await HeroService.getData();
   }
 
   render() {
@@ -27,7 +25,6 @@ export class HeroGrid {
         heroId={hero.id}
         ascension={hero.ascension}
         owned={hero.owned}
-        stars={hero.stars}
         name={hero.name}
         heroTitle={hero.title}
         si={hero.si}

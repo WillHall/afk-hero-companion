@@ -10,7 +10,7 @@ export class AppRoot {
       <ion-app>
         <ion-router useHash={false}>
           <ion-route url="/" component="hero-grid" />
-          <ion-route url="/profile/:name" component="app-profile" />
+          <ion-route url="/hero/:heroId" component="modify-hero" />
         </ion-router>
         <ion-nav />
       </ion-app>
